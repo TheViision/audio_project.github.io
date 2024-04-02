@@ -8,3 +8,54 @@ body{
     justify-content: center;
     font-size: 5vw;
 }
+
+#playButton {
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease; /* Smooth transition for sliding */
+
+}
+
+.carousel-item {
+    flex: 0 0 100%; /* Each item should not grow or shrink but be 100% of the carousel's width */
+
+}
+
+.carousel-item img {
+    width: 100%; /* Image should fill the item */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below the image */
+}
+
+/* Navigation buttons */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000; /* High z-index to ensure they're above other elements */
+}
+
+.carousel-btn.left {
+    left: 10px;
+}
+
+.carousel-btn.right {
+    right: 10px;
+}
