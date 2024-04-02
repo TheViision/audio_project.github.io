@@ -1,0 +1,10 @@
+body{
+    background-color: #FBF8DD;
+}
+
+#title{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 5vw;
+}
