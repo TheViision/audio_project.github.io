@@ -7,11 +7,13 @@ Tourist by Jihad, Redha, Marija
 
 The overall concept and theme revolve around exploration, discovery, and the transient feelings of being in a new place. By combining sound with a visual image carousel displayed on a website, we aimed to create a multi-sensory experience. The soundscapes are carefully crafted to represent different stages of the journey, while the image carousel provides visual context, enhancing the auditory experience and immersing the user deeper into the story of a tourist.
 
+![alt text](images/.jpeg)
+
 # Process:
 
 The process of "Tourist" began with a foundational step of crafting a website mockup that served as a blueprint for the user interface and experience design. The attached mockup image represents our initial vision, laying out a structure that was both intuitive and engaging. Aimed to achieve a balance between aesthetics and functionality, the mockup was pivotal in guiding our development process because from there we could divide the responsibilities.
 
-![alt text]()
+![alt text](images/mockup.jpeg)
 
 Implementing the concept required a collaborative effort, where responsibilities were clearly divided among team members to ensure a cohesive and immersive experience.
 
