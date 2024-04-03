@@ -1,25 +1,45 @@
+@font-face {
+    font-family: Meri;
+    src: url('../fonts/Merriweather/Merriweather-Regular.ttf');
+}
+
 body{
     background-color: #FBF8DD;
 }
 
-#title{
+#nav {
+    padding-top: 1vw ;
     display: flex;
-    text-align: center;
-    justify-content: center;
+    justify-content: center; /* Centers the content horizontally */
+    align-items: center; /* Centers the content vertically */
+    width: 100%; /* Takes the full width of its container */
+}
+
+#title {
     font-size: 5vw;
+    font-family: Meri;
+    display: inline-flex; /* Use inline-flex to keep title and button in one line */
+    align-items: center; /* Aligns the text and button vertically */
+    margin-right: 10px; /* Space between the title and the button */
 }
 
 #playButton {
+    width: 5%; /* Adjust if necessary */
+    border: 3.5px solid black;
+    border-radius: 10px;
     cursor: pointer;
     padding: 5px 10px;
-    margin-left: 10px;
+    display: block; /* Ensures the button is a block-level element within the flex container */
 }
+
 
 .carousel {
     position: relative;
     width: 100%;
     margin: auto;
     overflow: hidden;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
 }
 
 .carousel-inner {
@@ -34,9 +54,12 @@ body{
 }
 
 .carousel-item img {
-    width: 100%; /* Image should fill the item */
+    width: 75%; /* Image should fill the item */
     height: auto; /* Maintain aspect ratio */
+    margin: auto;
     display: block; /* Remove extra space below the image */
+    border: 3.5px solid black;
+    border-radius: 20px; /* Rounded corners */
 }
 
 /* Navigation buttons */

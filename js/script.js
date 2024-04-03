@@ -1,29 +1,60 @@
 document.addEventListener('DOMContentLoaded', function () {
     const carouselInner = document.getElementById('carouselInner');
     const items = document.querySelectorAll('.carousel-item');
-    let activeIndex = 0; // The index of the currently displayed item
+    let activeIndex = 0;
+    let interval = null;
 
     function updateCarousel() {
-        const width = carouselInner.clientWidth; // Get the current width of the carousel
-        const offset = -(width * activeIndex); // Calculate the new offset
-        carouselInner.style.transform = `translateX(${offset}px)`; // Apply the offset
+        const width = carouselInner.clientWidth;
+        const offset = -(width * activeIndex);
+        carouselInner.style.transform = `translateX(${offset}px)`;
     }
 
-    // Event listener for the 'Prev' button
-    document.getElementById('prevButton').addEventListener('click', function() {
-        if (activeIndex > 0) {
-            activeIndex--; // Decrease the index to show the previous item
-            updateCarousel();
-        }
-    });
+    function playCarousel() {
+        interval = setInterval(function() {
+            if (activeIndex < items.length - 1) {
+                activeIndex++;
+                updateCarousel();
+            } else {
+                clearInterval(interval); // Stop the interval when the last image is reached
+            }
+        }, 2000); // Change images every 2 seconds
+    }
 
-    // Event listener for the 'Next' button
-    document.getElementById('nextButton').addEventListener('click', function() {
-        if (activeIndex < items.length - 1) {
-            activeIndex++; // Increase the index to show the next item
-            updateCarousel();
-        }
-    });
+    const playButton = document.getElementById('playButton');
+    if (playButton) {
+        playButton.addEventListener('click', function() {
+            if (interval) {
+                clearInterval(interval); // If playing, stop it to prevent multiple intervals
+            }
+            playCarousel(); // Start the automatic playback
+        });
+    }
 
-    updateCarousel(); // Initialize the carousel position
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+
+    if (prevButton && nextButton) {
+        prevButton.addEventListener('click', function() {
+            if (activeIndex > 0) {
+                activeIndex--;
+                updateCarousel();
+                if (interval) {
+                    clearInterval(interval);
+                }
+            }
+        });
+
+        nextButton.addEventListener('click', function() {
+            if (activeIndex < items.length - 1) {
+                activeIndex++;
+                updateCarousel();
+                if (interval) {
+                    clearInterval(interval);
+                }
+            }
+        });
+    }
+
+    updateCarousel();
 });
