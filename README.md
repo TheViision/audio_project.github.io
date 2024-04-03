@@ -1,5 +1,5 @@
 # Project Name: Tourist 
-by Jihad, Redha, Marija (link[link](https://theviision.github.io/audio_project.github.io/))
+by Jihad, Redha, Marija (link[](https://theviision.github.io/audio_project.github.io/))
 
 # Project Description:
 
