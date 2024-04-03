@@ -24,9 +24,9 @@ Implementing the concept required a collaborative effort, where responsibilities
 Also, we all contributed to the sound recording process. This collaborative effort ensured that we captured a wide array of sounds that accurately reflected the diversity and dynamism of the hotel. This collective approach allowed us to gather a comprehensive collection of sounds, enriching the project's auditory landscape and providing a more nuanced and detailed experience for the user.
 
 The narrative mockup we used:
-Airport
-  Landing announcement (inside airplane)
-  Inside airport (crowded arrivals area)
+- Airport
+-   Landing announcement (inside airplane)
+-   Inside airport (crowded arrivals area)
 Taxi
   Outside → getting in car
 Inside car while driving
