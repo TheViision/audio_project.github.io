@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let activeIndex = 0;
     let playTimeout = null;
     let isPlaying = false;
-    const imageDurations = [25000, 30000, 3000, 10000, 20000, 35000, 5000, 27000, 3000, 15000, 3000 /*, ...other durations */];
+    const imageDurations = [25000, 30000, 3000, 9000, 18000, 35000, 5000, 27000, 5000, 15000, 3000 /*, ...other durations */];
     const playButton = document.getElementById('playButton');
 
     const playButtonSrc = 'images/play.png'; // The play button image
