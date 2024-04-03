@@ -27,21 +27,21 @@ The narrative mockup we used:
 - Airport
   - Landing announcement (inside airplane)
   - Inside airport (crowded arrivals area)
-Taxi
-  Outside → getting in car
-Inside car while driving
-Walking
-  Crowded sidewalk + footsteps
-Car Accident
-  Crash + people reacting
-Walking
-  Crowded sidewalk + footsteps
-Hotel
-  Bell (us) (Jihad)
-  Elevator (us) (Marija)
-  Key (us) (Redha)
-  Door (us) (Redha)
-  Bed  (us) (Jihad)                                                                                                                                                                                                                                                                                                                     
+- Taxi
+  - Outside → getting in car
+  - Inside car while driving
+- Walking
+  - Crowded sidewalk + footsteps
+- Car Accident
+  - Crash + people reacting
+- Walking
+  - Crowded sidewalk + footsteps
+- Hotel
+  - Bell (us) (Jihad)
+  - Elevator (us) (Marija)
+  - Key (us) (Redha)
+  - Door (us) (Redha)
+  - Bed  (us) (Jihad)                                                                                                                                                                                                                                                                                                                     
 
 # Reflection/Evaluation:
 
