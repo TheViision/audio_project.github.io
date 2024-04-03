@@ -2,7 +2,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const carouselInner = document.getElementById('carouselInner');
     const items = document.querySelectorAll('.carousel-item');
     let activeIndex = 0;
-    let interval = null;
+    let playTimeout = null;
+    let isPlaying = false;
+    const imageDurations = [3000, 2000, 5000, 4000,3000, 3000, 3000, 3000, 3000, 3000, 3000]; // durations for each image
+    const playButton = document.getElementById('playButton');
+
+    // Set the source for play and pause buttons
+    const playButtonSrc = 'images/play.png'; // The play button image
+    const pauseButtonSrc = 'images/pause_button.png'; // The pause button image, update if necessary
 
     function updateCarousel() {
         const width = carouselInner.clientWidth;
@@ -10,51 +17,46 @@ document.addEventListener('DOMContentLoaded', function () {
         carouselInner.style.transform = `translateX(${offset}px)`;
     }
 
+    function togglePlayPause() {
+        if (!isPlaying) {
+            // If not playing, start the carousel
+            playButton.src = pauseButtonSrc; // Change to pause button
+            isPlaying = true;
+            playCarousel();
+        } else {
+            // If playing, pause the carousel
+            playButton.src = playButtonSrc; // Change to play button
+            isPlaying = false;
+            clearTimeout(playTimeout);
+        }
+    }
+
     function playCarousel() {
-        interval = setInterval(function() {
+        function displayNextImage() {
             if (activeIndex < items.length - 1) {
                 activeIndex++;
-                updateCarousel();
             } else {
-                clearInterval(interval); // Stop the interval when the last image is reached
+                // Reset to first image
+                activeIndex = 0;
             }
-        }, 2000); // Change images every 2 seconds
-    }
-
-    const playButton = document.getElementById('playButton');
-    if (playButton) {
-        playButton.addEventListener('click', function() {
-            if (interval) {
-                clearInterval(interval); // If playing, stop it to prevent multiple intervals
-            }
-            playCarousel(); // Start the automatic playback
-        });
-    }
-
-    const prevButton = document.getElementById('prevButton');
-    const nextButton = document.getElementById('nextButton');
-
-    if (prevButton && nextButton) {
-        prevButton.addEventListener('click', function() {
-            if (activeIndex > 0) {
-                activeIndex--;
-                updateCarousel();
-                if (interval) {
-                    clearInterval(interval);
-                }
-            }
-        });
-
-        nextButton.addEventListener('click', function() {
+            updateCarousel();
             if (activeIndex < items.length - 1) {
-                activeIndex++;
-                updateCarousel();
-                if (interval) {
-                    clearInterval(interval);
-                }
+                playTimeout = setTimeout(displayNextImage, imageDurations[activeIndex]);
+            } else {
+                // Stop at the last image and switch to play button
+                playButton.src = playButtonSrc;
+                isPlaying = false;
             }
-        });
+        }
+
+        playTimeout = setTimeout(displayNextImage, imageDurations[activeIndex]);
     }
+
+    if (playButton) {
+        playButton.addEventListener('click', togglePlayPause);
+    }
+
+    // Add event listeners for prevButton and nextButton as before
 
     updateCarousel();
 });
