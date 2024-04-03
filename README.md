@@ -25,8 +25,8 @@ Also, we all contributed to the sound recording process. This collaborative effo
 
 The narrative mockup we used:
 - Airport
--   Landing announcement (inside airplane)
--   Inside airport (crowded arrivals area)
+  - Landing announcement (inside airplane)
+  - Inside airport (crowded arrivals area)
 Taxi
   Outside → getting in car
 Inside car while driving
