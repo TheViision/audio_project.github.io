@@ -7,7 +7,7 @@ by Jihad, Redha, Marija ([website](https://theviision.github.io/audio_project.gi
 
 The overall concept and theme revolve around exploration, discovery, and the transient feelings of being in a new place. By combining sound with a visual image carousel displayed on a website, we aimed to create a multi-sensory experience. The soundscapes are carefully crafted to represent different stages of the journey, while the image carousel provides visual context, enhancing the auditory experience and immersing the user deeper into the story of a tourist.
 
-![alt text](images/website.jpg)
+![alt text](images/website.png)
 
 # Process:
 

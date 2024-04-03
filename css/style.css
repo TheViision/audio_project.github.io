@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: #FBF8DD;
+    background: linear-gradient(to bottom, #faf8dd, #8acff1);
 }
 
 #nav {
