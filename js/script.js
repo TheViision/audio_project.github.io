@@ -1,15 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
     const carouselInner = document.getElementById('carouselInner');
     const items = document.querySelectorAll('.carousel-item');
-    const carouselAudio = document.getElementById('carouselAudio'); // Get the audio element
+    const carouselAudio = document.getElementById('carouselAudio'); 
     let activeIndex = 0;
     let playTimeout = null;
-    let isPlaying = false;
-    const imageDurations = [25000, 30000, 3000, 9000, 18000, 35000, 5000, 27000, 5000, 15000, 3000 /*, ...other durations */];
+    let syncInterval = null; // Interval for syncing audio and carousel
+    const imageDurations = [25000, 27000, 3000, 9000, 20000, 35000, 5000, 27000, 3000, 5000];
+    const totalDuration = imageDurations.reduce((a, b) => a + b, 0); // Sum of all image durations
     const playButton = document.getElementById('playButton');
 
-    const playButtonSrc = 'images/play.png'; // The play button image
-    const pauseButtonSrc = 'images/pause_button.png'; // The pause button image
+    const playButtonSrc = 'images/play.png';
+    const pauseButtonSrc = 'images/pause.png';
 
     function updateCarousel() {
         const width = carouselInner.clientWidth;
@@ -17,44 +18,44 @@ document.addEventListener('DOMContentLoaded', function () {
         carouselInner.style.transform = `translateX(${offset}px)`;
     }
 
-    function playCarousel() {
-        function displayNextImage() {
-            if (activeIndex < items.length - 1) {
-                activeIndex++;
-            } else {
-                activeIndex = 0; // Loop back to the first image
-            }
-            updateCarousel();
-            if (activeIndex < items.length - 1) {
-                playTimeout = setTimeout(displayNextImage, imageDurations[activeIndex]);
-            } else {
-                playButton.src = playButtonSrc;
-                isPlaying = false;
-                carouselAudio.pause(); // Pause the audio
-                carouselAudio.currentTime = 0; // Reset audio to start
+    function syncCarouselWithAudio() {
+        let elapsedTime = 0;
+        for (let i = 0; i < imageDurations.length; i++) {
+            elapsedTime += imageDurations[i];
+            if (carouselAudio.currentTime * 1000 < elapsedTime) {
+                activeIndex = i;
+                break;
             }
         }
+        updateCarousel();
+    }
 
-        playTimeout = setTimeout(displayNextImage, imageDurations[activeIndex]);
+    function playCarousel() {
+        clearInterval(syncInterval); // Clear previous interval if any
+        syncInterval = setInterval(syncCarouselWithAudio, 500); // Sync every half second
+
+        carouselAudio.play();
+        carouselAudio.addEventListener('ended', function() {
+            clearInterval(syncInterval);
+            playButton.src = playButtonSrc; // Switch to play button
+        }, { once: true });
     }
 
     function togglePlayPause() {
-        if (!isPlaying) {
-            playButton.src = pauseButtonSrc;
-            isPlaying = true;
-            playCarousel();
-            carouselAudio.play(); // Start playing the audio
-        } else {
+        const isAudioEnded = carouselAudio.currentTime >= carouselAudio.duration;
+        if (!isAudioEnded && !carouselAudio.paused) {
             playButton.src = playButtonSrc;
-            isPlaying = false;
-            clearTimeout(playTimeout);
-            carouselAudio.pause(); // Pause the audio
+            carouselAudio.pause();
+            clearInterval(syncInterval); // Stop syncing when paused
+        } else {
+            playButton.src = pauseButtonSrc;
+            carouselAudio.currentTime = 0; // Reset audio
+            activeIndex = 0; // Reset carousel
+            playCarousel();
         }
     }
 
-    if (playButton) {
-        playButton.addEventListener('click', togglePlayPause);
-    }
+    playButton.addEventListener('click', togglePlayPause);
 
     // Initialize the carousel and audio
     updateCarousel();

@@ -13,6 +13,7 @@ body{
     justify-content: center; /* Centers the content horizontally */
     align-items: center; /* Centers the content vertically */
     width: 100%; /* Takes the full width of its container */
+    margin-right: 10px; /* Space between the title and the button */
 }
 
 #title {
@@ -20,13 +21,16 @@ body{
     font-family: Meri;
     display: inline-flex; /* Use inline-flex to keep title and button in one line */
     align-items: center; /* Aligns the text and button vertically */
-    margin-right: 10px; /* Space between the title and the button */
+    text-shadow: 
+    -3px -3px 0 #fff,  
+     3px -3px 0 #fff,
+    -3px  3px 0 #fff,
+     3px  3px 0 #fff; /* White outline */
 }
 
 #playButton {
     width: 5%; /* Adjust if necessary */
-    border: 3.5px solid black;
-    border-radius: 10px;
+    margin-left: 10vw;
     cursor: pointer;
     padding: 5px 10px;
     display: block; /* Ensures the button is a block-level element within the flex container */
