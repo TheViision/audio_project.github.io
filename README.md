@@ -11,7 +11,7 @@ The overall concept and theme revolve around exploration, discovery, and the tra
 
 The process of "Tourist" began with a foundational step of crafting a website mockup that served as a blueprint for the user interface and experience design. The attached mockup image represents our initial vision, laying out a structure that was both intuitive and engaging. Aimed to achieve a balance between aesthetics and functionality, the mockup was pivotal in guiding our development process because from there we could divide the responsibilities.
 
-![alt text]()
+![alt text](images/mockup.jpeg)
 
 Implementing the concept required a collaborative effort, where responsibilities were clearly divided among team members to ensure a cohesive and immersive experience.
 
