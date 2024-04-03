@@ -14,6 +14,7 @@ body{
     align-items: center; /* Centers the content vertically */
     width: 100%; /* Takes the full width of its container */
     margin-right: 10px; /* Space between the title and the button */
+    
 }
 
 #title {
@@ -85,4 +86,20 @@ body{
 
 .carousel-btn.right {
     right: 10px;
+}
+
+#text_box {
+    font-family: Meri;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center children vertically */
+    align-items: center; /* Center children horizontally */
+    background-color: #fff;
+    border: 0.25vw solid black;
+    text-align: center;
+    margin: auto;
+    border-radius: 1vw;
+    width: 47vw;
+    height: 15vw;
+    margin-bottom: 4vw; /* Optional: To ensure text doesn't touch the edges */
 }
