@@ -44,7 +44,7 @@ body{
     margin: auto;
     overflow: hidden;
     padding-top: 1vw;
-    padding-bottom: 1vw;
+    padding-bottom: 0;
 }
 
 .carousel-inner {
@@ -89,6 +89,7 @@ body{
 }
 
 #text_box {
+    padding-top: 0;
     font-family: Meri;
     display: flex;
     flex-direction: column; /* Stack children vertically */
